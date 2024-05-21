@@ -4,14 +4,6 @@ import { adminRouter } from "./Route/AdminRouter.js";
 import { EmployeeRouter } from "./Route/EmployeeRoute.js";
 import Jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser"
-import path from "path";
-
-import { fileURLToPath } from 'url';
-
-// Helper function to get __dirname in ES module
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 
 const app = express()
 app.use(cors({
@@ -21,12 +13,9 @@ app.use(cors({
 }))
 app.use(express.json())
 app.use(cookieParser())
-
-app.use(express.static(path.join(__dirname, 'Public')));
-
 app.use('/auth', adminRouter)
 app.use('/employee', EmployeeRouter)
-// app.use(express.static('Public'))
+app.use(express.static('Public'))
 
 const verifyUser = (req, res, next) => {
     const token = req.cookies.token;
@@ -45,11 +34,6 @@ const verifyUser = (req, res, next) => {
 app.get('/verify',verifyUser, (req, res)=> {
     return res.json({Status: true, role: req.role, id: req.id})
 } )
-
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Public', 'index.html'));
-});
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000")
