@@ -4,6 +4,14 @@ import { adminRouter } from "./Route/AdminRouter.js";
 import { EmployeeRouter } from "./Route/EmployeeRoute.js";
 import Jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser"
+import path from "path";
+
+import { fileURLToPath } from 'url';
+
+// Helper function to get __dirname in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 const app = express()
 app.use(cors({
