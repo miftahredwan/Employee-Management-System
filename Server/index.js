@@ -13,9 +13,12 @@ app.use(cors({
 }))
 app.use(express.json())
 app.use(cookieParser())
+
+app.use(express.static(path.join(__dirname, 'Public')));
+
 app.use('/auth', adminRouter)
 app.use('/employee', EmployeeRouter)
-app.use(express.static('Public'))
+// app.use(express.static('Public'))
 
 const verifyUser = (req, res, next) => {
     const token = req.cookies.token;
@@ -34,6 +37,11 @@ const verifyUser = (req, res, next) => {
 app.get('/verify',verifyUser, (req, res)=> {
     return res.json({Status: true, role: req.role, id: req.id})
 } )
+
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Public', 'index.html'));
+});
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000")
