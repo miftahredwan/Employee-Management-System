@@ -1,10 +1,13 @@
+import 'dotenv/config';
 import express from "express";
 import cors from 'cors';
 import { adminRouter } from "./Route/AdminRouter.js";
 import { EmployeeRouter } from "./Route/EmployeeRoute.js";
 import Jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser"
-
+import createTables from "./Utils/createtable.js"
+// import Client from "./Utils/db.js";
+const PORT = process.env.PORT
 const app = express()
 app.use(cors({
     origin:["http://localhost:5173"],
@@ -41,6 +44,13 @@ app.get('/verify',verifyUser, (req, res)=> {
     return res.json({Status: true, role: req.role, id: req.id})
 } )
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000")
+
+// Create tables when the application starts
+createTables()
+    .then(() => console.log('Table creation process completed'))
+    .catch(err => console.error('Table creation failed:', err));
+
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
 })

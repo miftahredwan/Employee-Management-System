@@ -305,13 +305,24 @@ const AddEmployee = () => {
             <label htmlFor="category" className="form-label">
               Category
             </label>
-            <select name="category" id="category" className="form-select"
+            {/* <select name="category" id="category" className="form-select"
                 onChange={(e) => setEmployee({...employee, category_id: e.target.value})}>
               {category.map((c) => {
                 // eslint-disable-next-line react/jsx-key
                 return <option value={c.id}>{c.name}</option>;
               })}
-            </select>
+            </select> */}
+
+<select name="category" id="category" className="form-select"
+  value={employee.category_id} // Ensures controlled input
+  onChange={(e) => setEmployee({...employee, category_id: e.target.value})}>
+  <option value="">Select a category</option> {/* Default placeholder */}
+  {category.map((c) => (
+    <option key={c.id} value={c.id}>{c.name}</option>
+  ))}
+</select>
+
+
           </div>
           <div className="col-12 mb-3">
             <label className="form-label" htmlFor="inputGroupFile01">

@@ -26,27 +26,47 @@ const Home = () => {
       }
     })
   }
+  // const adminCount = () => {
+  //   axios.get('http://localhost:3000/auth/admin_count')
+  //   .then(result => {
+  //     if(result.data.Status) {
+  //       setAdminTotal(result.data.Result[0].admin)
+  //     }
+  //   })
+  // }
+
   const adminCount = () => {
     axios.get('http://localhost:3000/auth/admin_count')
     .then(result => {
-      if(result.data.Status) {
-        setAdminTotal(result.data.Result[0].admin)
-      }
+        if (result.data.Status) {
+            console.log('Received admin count:', result.data.Result); // Debugging
+            setAdminTotal(result.data.Result.admin); // Fix here
+        } else {
+            console.error('Error:', result.data.Error);
+        }
     })
-  }
+    .catch(err => console.error('Request failed:', err));
+}
+
+
   const employeeCount = () => {
     axios.get('http://localhost:3000/auth/employee_count')
     .then(result => {
       if(result.data.Status) {
-        setemployeeTotal(result.data.Result[0].employee)
+        setemployeeTotal(result.data.Result.employee)
       }
     })
   }
   const salaryCount = () => {
     axios.get('http://localhost:3000/auth/salary_count')
     .then(result => {
+      console.log(result.data);
+      console.log("Response data:", result.data);  // Log the full response data
       if(result.data.Status) {
-        setSalaryTotal(result.data.Result[0].salaryOFEmp)
+        // console.log("Salary of employees:", result.data.Result.salaryOFEmp);
+        // setSalaryTotal(result.data.Result.salaryOFEmp)
+        console.log("Salary of employees:", result.data.Result.salaryofemp);  // Log the specific field
+        setSalaryTotal(result.data.Result.salaryofemp); 
       } else {
         alert(result.data.Error)
       }
@@ -100,13 +120,13 @@ const Home = () => {
                 <tr>
                   <td>{a.email}</td>
                   <td>
-                  <button
+                  {/* <button
                     className="btn btn-info btn-sm me-2">
                     Edit
-                  </button>
+                  </button> */}
                   <button
                     className="btn btn-warning btn-sm" >
-                    Delete
+                  Admin
                   </button>
                   </td>
                 </tr>
