@@ -1,14 +1,14 @@
-import axios from "axios";
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axiosBase from "../axios.config";
 
 
 const Start = () => {
     const navigate = useNavigate()
-  axios.defaults.withCredentials = true;
+    axiosBase.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get('http://localhost:3000/verify')
+    axiosBase.get('/verify')
     .then(result => {
       if(result.data.Status) {
         if(result.data.role === "admin") {

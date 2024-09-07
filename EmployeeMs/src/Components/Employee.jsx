@@ -1,15 +1,16 @@
-import axios from "axios";
+
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axiosBase from "../axios.config";
 
 const Employee = () => {
   const [employee, setEmployee] = useState([]);
   // const navigate = useNavigate()
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/auth/employee")
+    axiosBase
+      .get("/auth/employee")
       .then((result) => {
         if (result.data.Status) {
           setEmployee(result.data.Result);
@@ -20,7 +21,7 @@ const Employee = () => {
       .catch((err) => console.log(err));
   }, []);
   const handleDelete = (id) => {
-    axios.delete('http://localhost:3000/auth/delete_employee/'+id)
+    axiosBase.delete('/auth/delete_employee/'+id)
     .then(result => {
         if(result.data.Status) {
             window.location.reload()
@@ -56,7 +57,7 @@ const Employee = () => {
                 <td>{e.name}</td>
                 <td>
                   <img
-                    src={`http://localhost:3000/Images/` + e.image}
+                    src={`${axiosBase.defaults.baseURL}/Images/` + e.image}
                     className="employee_image"
                   />
                 </td> 

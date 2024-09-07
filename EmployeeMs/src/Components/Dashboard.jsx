@@ -2,13 +2,14 @@
 import React from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import "bootstrap-icons/font/bootstrap-icons.css";
-import axios from "axios";
+
+import axiosBase from '../axios.config';
 
 const Dashboard = () => {
   const anvigate = useNavigate()
-  axios.defaults.withCredentials = true
+  axiosBase.defaults.withCredentials = true
   const handleLogout = () => {
-    axios.get('http://localhost:3000/auth/logout')
+    axiosBase.get('/auth/logout')
     .then(result => {
       if(result.data.Status) { 
         localStorage.removeItem("valid")
@@ -26,8 +27,9 @@ const Dashboard = () => {
               to="/dashboard"
               className="d-flex align-items-center pb-3 mb-md-1 mt-md-3 me-md-auto text-white text-decoration-none"
             >
-              <span className="fs-5 fw-bolder d-none d-sm-inline">
-                Code With Mihas
+              <span className="fs-7  fw-bolder d-none d-sm-inline">
+                BaajiTech Software
+                Solutions
               </span>
             </Link>
             <ul

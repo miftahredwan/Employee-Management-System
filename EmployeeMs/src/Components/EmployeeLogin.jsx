@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import './style.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import axiosBase from '../axios.config'
 
 const EmployeeLogin = () => {
     const [values, setValues] = useState({
@@ -11,10 +12,10 @@ const EmployeeLogin = () => {
     })
     const [error, setError] = useState(null)
     const navigate = useNavigate()
-    axios.defaults.withCredentials = true;
+    axiosBase.defaults.withCredentials = true;
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post('http://localhost:3000/employee/employee_login', values)
+        axiosBase.post('/employee/employee_login', values)
         .then(result => {
             if(result.data.loginStatus) {
                 localStorage.setItem("valid", true)

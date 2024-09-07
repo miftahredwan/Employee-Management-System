@@ -2,6 +2,7 @@ import axios from 'axios'
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import axiosBase from '../axios.config'
 
 const EditEmployee = () => {
     const {id} = useParams()
@@ -16,7 +17,7 @@ const EditEmployee = () => {
       const navigate = useNavigate()
 
       useEffect(()=> {
-        axios.get('http://localhost:3000/auth/category')
+        axiosBase.get('/auth/category')
         .then(result => {
             if(result.data.Status) {
                 setCategory(result.data.Result);
@@ -25,7 +26,7 @@ const EditEmployee = () => {
             }
         }).catch(err => console.log(err))
 
-        axios.get('http://localhost:3000/auth/employee/'+id)
+        axiosBase.get('/auth/employee/'+id)
         .then(result => {
             setEmployee({
                 ...employee,
@@ -41,7 +42,7 @@ const EditEmployee = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.put('http://localhost:3000/auth/edit_employee/'+id, employee)
+        axiosBase.put('/auth/edit_employee/'+id, employee)
         .then(result => {
             if(result.data.Status) {
                 navigate('/dashboard/employee')

@@ -9,7 +9,7 @@
 
 //     const handleSubmit = (e) => {
 //         e.preventDefault()
-//         axios.post('http://localhost:3000/auth/add_category', {category})
+//         axios.post('/auth/add_category', {category})
 //         .then(result => {
 //             if(result.data.Status) {
 //                 navigate('/dashboard/category')
@@ -44,6 +44,7 @@ import axios from 'axios'
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axiosBase from '../axios.config'
 
 const AddCategory = () => {
     const [category, setCategory] = useState()
@@ -51,7 +52,7 @@ const AddCategory = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3000/auth/add_category', {category})
+        axiosBase.post('/auth/add_category', {category})
         .then(result => 
             {
             if(result.data.Status) {

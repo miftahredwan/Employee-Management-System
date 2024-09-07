@@ -2,6 +2,7 @@ import axios from 'axios'
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import axiosBase from '../axios.config'
 
 
 const EmployeeDetail = () => {
@@ -9,7 +10,7 @@ const EmployeeDetail = () => {
     const {id} = useParams()
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get('http://localhost:3000/employee/detail/'+id)
+        axiosBase.get('/employee/detail/'+id)
         .then(result => {
             setEmployee(result.data[0])
         })
@@ -17,7 +18,7 @@ const EmployeeDetail = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     const handleLogout = () => {
-        axios.get('http://localhost:3000/employee/logout')
+        axiosBase.get('/employee/logout')
         .then(result => {
           if(result.data.Status) {
             localStorage.removeItem("valid")
@@ -31,7 +32,7 @@ const EmployeeDetail = () => {
             <h4>Emoployee Management System</h4>
         </div>
         <div className='d-flex justify-content-center flex-column align-items-center mt-3'>
-            <img src={`http://localhost:3000/Images/`+employee.image} className='emp_det_image'/>
+            <img src={`/Images/`+employee.image} className='emp_det_image'/>
             <div className='d-flex align-items-center flex-column mt-5'>
                 <h3>Name: {employee.name}</h3>
                 <h3>Email: {employee.email}</h3>

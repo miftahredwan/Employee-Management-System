@@ -2,6 +2,7 @@
 import axios from 'axios'
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react'
+import axiosBase from '../axios.config'
 
 const Home = () => {
   const [adminTotal, setAdminTotal] = useState(0)
@@ -17,7 +18,7 @@ const Home = () => {
   }, [])
 
   const AdminRecords = () => {
-    axios.get('http://localhost:3000/auth/admin_records')
+    axiosBase.get('/auth/admin_records')
     .then(result => {
       if(result.data.Status) {
         setAdmins(result.data.Result)
@@ -27,7 +28,7 @@ const Home = () => {
     })
   }
   // const adminCount = () => {
-  //   axios.get('http://localhost:3000/auth/admin_count')
+  //   axios.get('/auth/admin_count')
   //   .then(result => {
   //     if(result.data.Status) {
   //       setAdminTotal(result.data.Result[0].admin)
@@ -36,7 +37,7 @@ const Home = () => {
   // }
 
   const adminCount = () => {
-    axios.get('http://localhost:3000/auth/admin_count')
+    axiosBase.get('/auth/admin_count')
     .then(result => {
         if (result.data.Status) {
             console.log('Received admin count:', result.data.Result); // Debugging
@@ -50,7 +51,7 @@ const Home = () => {
 
 
   const employeeCount = () => {
-    axios.get('http://localhost:3000/auth/employee_count')
+    axiosBase.get('/auth/employee_count')
     .then(result => {
       if(result.data.Status) {
         setemployeeTotal(result.data.Result.employee)
@@ -58,7 +59,7 @@ const Home = () => {
     })
   }
   const salaryCount = () => {
-    axios.get('http://localhost:3000/auth/salary_count')
+    axiosBase.get('/auth/salary_count')
     .then(result => {
       console.log(result.data);
       console.log("Response data:", result.data);  // Log the full response data
