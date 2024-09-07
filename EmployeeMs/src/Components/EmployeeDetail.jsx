@@ -138,7 +138,7 @@ const EmployeeDetail = () => {
         .then(result => {
             console.log(result.data)  // Debugging: check what the API returns
             if (result.data && result.data.length > 0) {
-                setEmployee(result.data[0])  // Assuming result.data is an array
+                setEmployee(result.data)  // Assuming result.data is an array
             } else {
                 setError('No employee data found')
             }
