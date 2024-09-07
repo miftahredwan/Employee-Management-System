@@ -27,22 +27,28 @@ const EmployeeDetail = () => {
       }
   return (
     <div>
-        <div className="p-2 d-flex justify-content-center shadow">
-            <h4>Emoployee Management System</h4>
-        </div>
-        <div className='d-flex justify-content-center flex-column align-items-center mt-3'>
-            <img src={`/Images/`+employee.image} className='emp_det_image'/>
-            <div className='d-flex align-items-center flex-column mt-5'>
-                <h3>Name: {employee.name}</h3>
-                <h3>Email: {employee.email}</h3>
-                <h3>Salary: {employee.salary}ETB</h3>
-            </div>
-            <div>
-                <button className='btn btn-primary me-2'>Edit</button>
-                <button className='btn btn-danger' onClick={handleLogout}>Logout</button>
-            </div>
-        </div>
+    <div className="p-2 d-flex justify-content-center shadow">
+      <h4>Employee Management System</h4>
     </div>
+    <div className='d-flex justify-content-center flex-column align-items-center mt-3'>
+      <img 
+        src={`/Images/`+employee.image} 
+        className='emp_det_image img-fluid' // 'img-fluid' ensures responsive scaling
+        alt="Employee" 
+        style={{ maxWidth: '200px', borderRadius: '10px' }} // Adjust the size and style
+      />
+      <div className='d-flex align-items-center flex-column mt-5 text-center'>
+        <h3 className='mb-2'>Name: {employee.name}</h3>
+        <h3 className='mb-2'>Email: {employee.email}</h3>
+        <h3 className='mb-2'>Salary: {employee.salary} ETB</h3>
+      </div>
+      <div className='mt-3'>
+        <button className='btn btn-primary me-2 mb-2'>Edit</button>
+        <button className='btn btn-danger mb-2' onClick={handleLogout}>Logout</button>
+      </div>
+    </div>
+  </div>
+  
   )
 }
 

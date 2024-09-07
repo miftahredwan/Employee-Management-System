@@ -31,59 +31,62 @@ const Employee = () => {
     })
   } 
   return (
-    <div className="px-5 mt-3">
-      <div className="d-flex justify-content-center">
-        <h3>Employee List</h3>
-      </div>
+    <div className="container-fluid px-3 px-md-5 mt-3">
+    <div className="d-flex justify-content-center mb-3">
+      <h3>Employee List</h3>
+    </div>
+    <div className="d-flex justify-content-center mb-3">
       <Link to="/dashboard/add_employee" className="btn btn-success">
         Add Employee
       </Link>
-      <div className="mt-3">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Image</th>
-              <th>Email</th>
-              <th>Salary</th>
-              <th>Address</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {employee.map((e) => (
-              // eslint-disable-next-line react/jsx-key
-              <tr>
-                <td>{e.name}</td>
-                <td>
-                  <img
-                    src={`${axiosBase.defaults.baseURL}/Images/` + e.image}
-                    className="employee_image"
-                  />
-                </td> 
-                <td>{e.email}</td>
-                <td>{e.salary} K</td>
-                <td>{e.address}</td>
-                <td>
-                  <Link
-                    to={`/dashboard/edit_employee/` + e.id}
-                    className="btn btn-info btn-sm me-2"
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    className="btn btn-warning btn-sm"
-                    onClick={() => handleDelete(e.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
     </div>
+    <div className="table-responsive">
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>Address</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {employee.map((e) => (
+            <tr key={e.id}>
+              <td>{e.name}</td>
+              <td>
+                <img
+                  src={`${axiosBase.defaults.baseURL}/Images/` + e.image}
+                  className="employee_image img-fluid"
+                  alt="employee"
+                  style={{ maxWidth: "50px", borderRadius: "5px" }}
+                />
+              </td>
+              <td>{e.email}</td>
+              <td>{e.salary} K</td>
+              <td>{e.address}</td>
+              <td>
+                <Link
+                  to={`/dashboard/edit_employee/` + e.id}
+                  className="btn btn-info btn-sm me-2"
+                >
+                  Edit
+                </Link>
+                <button
+                  className="btn btn-warning btn-sm"
+                  onClick={() => handleDelete(e.id)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>  
   );
 };
 

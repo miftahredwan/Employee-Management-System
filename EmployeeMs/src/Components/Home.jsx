@@ -55,8 +55,6 @@ const Home = () => {
       console.log(result.data);
       console.log("Response data:", result.data);  // Log the full response data
       if(result.data.Status) {
-        // console.log("Salary of employees:", result.data.Result.salaryOFEmp);
-        // setSalaryTotal(result.data.Result.salaryOFEmp)
         console.log("Salary of employees:", result.data.Result.salaryofemp);  // Log the specific field
         setSalaryTotal(result.data.Result.salaryofemp); 
       } else {
@@ -66,68 +64,65 @@ const Home = () => {
   }
   return (
     <div>
-      <div className='p-3 d-flex justify-content-around mt-3'>
-        <div className='px-3 pt-2 pb-3 border shadow-sm w-25'>
-          <div className='text-center pb-1'>
-            <h4>Admin</h4>
-          </div>
-          <hr />
-          <div className='d-flex justify-content-between'>
-            <h5>Total:</h5>
-            <h5>{adminTotal}</h5>
-          </div>
-        </div>
-        <div className='px-3 pt-2 pb-3 border shadow-sm w-25'>
-          <div className='text-center pb-1'>
-            <h4>Employee</h4>
-          </div>
-          <hr />
-          <div className='d-flex justify-content-between'>
-            <h5>Total:</h5>
-            <h5>{employeeTotal}</h5>
-          </div>
-        </div>
-        <div className='px-3 pt-2 pb-3 border shadow-sm w-25'>
-          <div className='text-center pb-1'>
-            <h4>Salary</h4>
-          </div>
-          <hr />
-          <div className='d-flex justify-content-between'>
-            <h5>Total:</h5><h5>{salaryTotal} ETB</h5>
-          </div>
-        </div>
+  <div className='p-3 d-flex flex-wrap justify-content-around mt-3'>
+    <div className='px-3 pt-2 pb-3 border shadow-sm w-100 w-md-50 w-lg-25 mb-3'>
+      <div className='text-center pb-1'>
+        <h4>Admin</h4>
       </div>
-      <div className='mt-4 px-5 pt-3'>
-        <h3>List of Admins</h3>
-        <table className='table'>
-          <thead>
-            <tr>
-              <th>Email</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              admins.map(a => (
-                <tr>
-                  <td>{a.email}</td>
-                  <td>
-                  {/* <button
-                    className="btn btn-info btn-sm me-2">
-                    Edit
-                  </button> */}
-                  <button
-                    className="btn btn-warning btn-sm" >
-                  Admin
-                  </button>
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+      <hr />
+      <div className='d-flex justify-content-between'>
+        <h5>Total:</h5>
+        <h5>{adminTotal}</h5>
       </div>
     </div>
+    <div className='px-3 pt-2 pb-3 border shadow-sm w-100 w-md-50 w-lg-25 mb-3'>
+      <div className='text-center pb-1'>
+        <h4>Employee</h4>
+      </div>
+      <hr />
+      <div className='d-flex justify-content-between'>
+        <h5>Total:</h5>
+        <h5>{employeeTotal}</h5>
+      </div>
+    </div>
+    <div className='px-3 pt-2 pb-3 border shadow-sm w-100 w-md-50 w-lg-25 mb-3'>
+      <div className='text-center pb-1'>
+        <h4>Salary</h4>
+      </div>
+      <hr />
+      <div className='d-flex justify-content-between'>
+        <h5>Total:</h5>
+        <h5>{salaryTotal} ETB</h5>
+      </div>
+    </div>
+  </div>
+  <div className='mt-4 px-2 px-md-5 pt-3'>
+    <h3>List of Admins</h3>
+    <table className='table table-responsive'>
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          admins.map(a => (
+            <tr key={a.email}>
+              <td>{a.email}</td>
+              <td>
+                <button className="btn btn-warning btn-sm">
+                  Admin
+                </button>
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
   )
 }
 

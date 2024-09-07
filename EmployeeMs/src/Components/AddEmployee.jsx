@@ -55,11 +55,11 @@ const AddEmployee = () => {
   }
 
   return (
-    <div className="d-flex justify-content-center align-items-center mt-3">
-      <div className="p-3 rounded w-50 border">
+    <div className="container mt-3">
+    <div className="d-flex justify-content-center">
+      <div className="p-3 rounded border w-100 w-md-75 w-lg-50">
         <h3 className="text-center">Add Employee</h3>
-        <form className="row g-1" 
-      onSubmit={handleSubmit}>
+        <form className="row g-3" onSubmit={handleSubmit}>
           <div className="col-12">
             <label htmlFor="inputName" className="form-label">
               Name
@@ -102,6 +102,8 @@ const AddEmployee = () => {
                 setEmployee({ ...employee, password: e.target.value })
               }
             />
+          </div>
+          <div className="col-12">
             <label htmlFor="inputSalary" className="form-label">
               Salary
             </label>
@@ -135,24 +137,22 @@ const AddEmployee = () => {
             <label htmlFor="category" className="form-label">
               Category
             </label>
-            {/* <select name="category" id="category" className="form-select"
-                onChange={(e) => setEmployee({...employee, category_id: e.target.value})}>
-              {category.map((c) => {
-                // eslint-disable-next-line react/jsx-key
-                return <option value={c.id}>{c.name}</option>;
-              })}
-            </select> */}
-
-<select name="category" id="category" className="form-select"
-  value={employee.category_id} // Ensures controlled input
-  onChange={(e) => setEmployee({...employee, category_id: e.target.value})}>
-  <option value="">Select a category</option> {/* Default placeholder */}
-  {category.map((c) => (
-    <option key={c.id} value={c.id}>{c.name}</option>
-  ))}
-</select>
-
-
+            <select
+              name="category"
+              id="category"
+              className="form-select"
+              value={employee.category_id} // Ensures controlled input
+              onChange={(e) =>
+                setEmployee({ ...employee, category_id: e.target.value })
+              }
+            >
+              <option value="">Select a category</option> {/* Default placeholder */}
+              {category.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="col-12 mb-3">
             <label className="form-label" htmlFor="inputGroupFile01">
@@ -163,7 +163,9 @@ const AddEmployee = () => {
               className="form-control rounded-0"
               id="inputGroupFile01"
               name="image"
-              onChange={(e) => setEmployee({...employee, image: e.target.files[0]})}
+              onChange={(e) =>
+                setEmployee({ ...employee, image: e.target.files[0] })
+              }
             />
           </div>
           <div className="col-12">
@@ -174,6 +176,7 @@ const AddEmployee = () => {
         </form>
       </div>
     </div>
+  </div>  
   );
 };
 

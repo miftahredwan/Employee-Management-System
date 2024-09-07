@@ -53,10 +53,11 @@ const EditEmployee = () => {
     }
     
   return (
-    <div className="d-flex justify-content-center align-items-center mt-3">
-      <div className="p-3 rounded w-50 border">
+    <div className="container mt-3">
+    <div className="d-flex justify-content-center align-items-center">
+      <div className="p-3 rounded w-100 w-md-75 w-lg-50 border">
         <h3 className="text-center">Edit Employee</h3>
-        <form className="row g-1" onSubmit={handleSubmit}>
+        <form className="row g-3" onSubmit={handleSubmit}>
           <div className="col-12">
             <label htmlFor="inputName" className="form-label">
               Name
@@ -88,7 +89,7 @@ const EditEmployee = () => {
               }
             />
           </div>
-          <div className='col-12'>
+          <div className="col-12">
             <label htmlFor="inputSalary" className="form-label">
               Salary
             </label>
@@ -124,15 +125,21 @@ const EditEmployee = () => {
             <label htmlFor="category" className="form-label">
               Category
             </label>
-            <select name="category" id="category" className="form-select"
-                onChange={(e) => setEmployee({...employee, category_id: e.target.value})}>
-              {category.map((c) => {
-                // eslint-disable-next-line react/jsx-key
-                return <option value={c.id}>{c.name}</option>;
-              })}
+            <select
+              name="category"
+              id="category"
+              className="form-select"
+              onChange={(e) =>
+                setEmployee({ ...employee, category_id: e.target.value })
+              }
+            >
+              {category.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.name}
+                </option>
+              ))}
             </select>
           </div>
-          
           <div className="col-12">
             <button type="submit" className="btn btn-primary w-100">
               Edit Employee
@@ -141,6 +148,8 @@ const EditEmployee = () => {
         </form>
       </div>
     </div>
+  </div>
+  
   )
 }
 
