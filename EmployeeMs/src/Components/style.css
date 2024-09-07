@@ -31,3 +31,10 @@ ul li :hover {
 }
 
 
+/* styles.css */
+@media (max-width: 576px) {
+    .loginForm {
+      width: 100%;
+    }
+  }
+  
