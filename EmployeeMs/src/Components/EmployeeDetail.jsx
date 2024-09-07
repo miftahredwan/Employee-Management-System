@@ -32,7 +32,7 @@ const EmployeeDetail = () => {
     </div>
     <div className='d-flex justify-content-center flex-column align-items-center mt-3'>
       <img 
-        src={`/Images/`+employee.image} 
+        src={`${axiosBase.defaults.baseURL}/Images/`+employee.image} 
         className='emp_det_image img-fluid' // 'img-fluid' ensures responsive scaling
         alt="Employee" 
         style={{ maxWidth: '200px', borderRadius: '10px' }} // Adjust the size and style
