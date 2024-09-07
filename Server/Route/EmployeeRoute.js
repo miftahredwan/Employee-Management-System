@@ -40,7 +40,7 @@ router.get('/detail/:id', async (req, res) => {
         const result = await client.query(sql, [id]);
         
         if(result.rows.length > 0) {
-            return res.json(result.rows[0]);
+            return res.json(result.rows);
         } else {
             return res.json({Status: false, Error: "Employee not found"});
         }
