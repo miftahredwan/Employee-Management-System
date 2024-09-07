@@ -2,7 +2,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosBase from "../axios.config";
-import './styles.css';
 
 const Start = () => {
     const navigate = useNavigate()

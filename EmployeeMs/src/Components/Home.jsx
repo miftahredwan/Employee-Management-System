@@ -26,14 +26,6 @@ const Home = () => {
       }
     })
   }
-  // const adminCount = () => {
-  //   axios.get('/auth/admin_count')
-  //   .then(result => {
-  //     if(result.data.Status) {
-  //       setAdminTotal(result.data.Result[0].admin)
-  //     }
-  //   })
-  // }
 
   const adminCount = () => {
     axiosBase.get('/auth/admin_count')
