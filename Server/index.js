@@ -10,7 +10,7 @@ import createTables from "./Utils/createtable.js"
 const PORT = process.env.PORT
 const app = express()
 app.use(cors({
-    origin:["http://localhost:5173"],
+    origin:["https://employee-management-system-baaji.vercel.app"],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }))
