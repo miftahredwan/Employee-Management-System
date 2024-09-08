@@ -1,10 +1,11 @@
 
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axiosBase from "../axios.config";
 
 const Employee = () => {
+  const navigate = useNavigate()
   const [employee, setEmployee] = useState([]);
   // const navigate = useNavigate()
 
@@ -24,7 +25,8 @@ const Employee = () => {
     axiosBase.delete('/auth/delete_employee/'+id)
     .then(result => {
         if(result.data.Status) {
-            window.location.reload()
+          navigate('/employee')
+            // window.location.reload()
         } else {
             alert(result.data.Error)
         }

@@ -6,14 +6,14 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import axiosBase from '../axios.config';
 
 const Dashboard = () => {
-  const anvigate = useNavigate()
+  const navigate = useNavigate()
   axiosBase.defaults.withCredentials = true
   const handleLogout = () => {
     axiosBase.get('/auth/logout')
     .then(result => {
       if(result.data.Status) { 
         localStorage.removeItem("valid")
-        anvigate('/')
+        navigate('/')
       }
     })
   } 
