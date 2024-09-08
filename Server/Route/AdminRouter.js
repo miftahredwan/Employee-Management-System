@@ -141,6 +141,7 @@ router.delete('/delete_employee/:id', async (req, res) => {
     try {
         const result = await client.query(sql, [id]);
         return res.json({ Status: true, Result: result.rowCount });
+        
     } catch (err) {
         return res.json({ Status: false, Error: "Query Error" + err });
     }

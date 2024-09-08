@@ -280,7 +280,6 @@ const EmployeeDetail = () => {
                     <h3 className='mb-2'>Salary: {employee.salary} ETB</h3>
                 </div>
                 <div className='mt-3'>
-                    <button className='btn btn-primary me-2 mb-2'>Edit</button>
                     <button className='btn btn-danger mb-2' onClick={handleLogout}>Logout</button>
                 </div>
             </div>
