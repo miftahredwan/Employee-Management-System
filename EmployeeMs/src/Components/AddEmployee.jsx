@@ -247,7 +247,7 @@ const AddEmployee = () => {
   return (
     <div className="container mt-3">
       <div className="d-flex justify-content-center">
-        <div className="p-3 rounded border w-100 w-md-75 w-lg-50">
+        <div className="p-3 rounded border w-100 w-md-75 w-lg-40">
           <h3 className="text-center">Add Employee</h3>
           {loading ? (
             <div className="text-center">
