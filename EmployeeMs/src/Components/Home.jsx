@@ -64,24 +64,24 @@ const Home = () => {
   }
   return (
     <div>
-  <div className='p-10 d-flex flex-wrap justify-content-around mt-3 w-100 w-lg-25'>
-    <div className='px-3 pt-2 pb-3 rounded border shadow-sm w-100 w-md-50 w-lg-15 mb-3'>
+  <div className='p-10 d-flex flex-wrap justify-content-around mt-3 w-100 w-lg-5'>
+    <div className='px-3 pt-2 pb-3 rounded border shadow-sm w-100 w-md-50 w-lg-5 mb-3'>
       <div className='text-center pb-1'>
         <h4>Admin</h4>
       </div>
       <hr />
       <div className='d-flex gap-5 justify-content-center'>
-        <h5>Total:</h5>
+        <h5>Total :</h5>
         <h5>{adminTotal}</h5>
       </div>
     </div>
     <div className='px-3 pt-2 pb-3 rounded border shadow-sm w-100 w-md-50 w-lg-15 mb-3'>
       <div className='text-center pb-1'>
-        <h4>Employee</h4>
+        <h4>Employee </h4>
       </div>
       <hr />
-      <div className='d-flex gap-5 justify-content-center'>
-        <h5>Total:</h5>
+      <div className='d-flex gap-2 justify-content-center'>
+        <h5>Total </h5>
         <h5>{employeeTotal}</h5>
       </div>
     </div>
@@ -90,8 +90,8 @@ const Home = () => {
         <h4>Salary</h4>
       </div>
       <hr />
-      <div className='d-flex gap-5 justify-content-center'>
-        <h5>Total:</h5>
+      <div className='d-flex gap-2 justify-content-center'>
+        <h5>Total </h5>
         <h5>{salaryTotal ? `${salaryTotal} ETB` : '0 ETB'}</h5>
       </div>
     </div>
