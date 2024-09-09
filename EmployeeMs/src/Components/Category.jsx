@@ -270,6 +270,28 @@ const Category = () => {
       });
   };
 
+
+    // Function to handle deleting a category
+    const handleDelete = (id) => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this category?");
+        if (confirmDelete) {
+          axiosBase
+            .delete(`/auth/delete_category/${id}`)
+            .then((result) => {
+              if (result.data.Status) {
+                alert("Category deleted successfully.");
+                setCategory(category.filter((c) => c.id !== id)); // Remove the deleted category from state
+              } else {
+                alert(result.data.Error);
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+              alert("Error deleting category.");
+            });
+        }
+      };
+
   return (
     <div className="container mt-3">
       <div className="d-flex justify-content-center">
@@ -304,6 +326,12 @@ const Category = () => {
                       onClick={() => fetchEmployeesByCategory(c.id)} // Fetch employees when clicked
                     >
                       View Employees
+                    </button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleDelete(c.id)} // Call handleDelete on button click
+                    >
+                      Delete
                     </button>
                   </td>
                 </tr>
@@ -346,7 +374,9 @@ const Category = () => {
         ) : (
           <div>No employees found in this category.</div>
         )}
+        
       </div>
+      
     </div>
   );
 };
