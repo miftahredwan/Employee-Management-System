@@ -63,9 +63,9 @@ const Home = () => {
     })
   }
   return (
-    <div className=' w-100 w-lg-50'>
-  <div className='p-3 d-flex flex-wrap justify-content-around mt-3 w-100 w-lg-50'>
-    <div className='px-3 pt-2 pb-3 border shadow-sm w-100 w-md-50 w-lg-15 mb-3'>
+    <div>
+  <div className='p-10 d-flex flex-wrap justify-content-around mt-3 w-100 w-lg-50'>
+    <div className='px-10 pt-2 pb-3 border shadow-sm w-100 w-md-50 w-lg-15 mb-3'>
       <div className='text-center pb-1'>
         <h4>Admin</h4>
       </div>
