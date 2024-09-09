@@ -58,6 +58,21 @@ router.post('/add_category', async (req, res) => {
     }
 });
 
+
+router.delete('/delete_category/:id', async (req, res) => {
+    const id = req.params.id;
+    const sql = "DELETE FROM category WHERE id = $1";
+    
+    try {
+        const result = await client.query(sql, [id]);
+        return res.json({ Status: true, Result: result.rowCount });
+    } catch (err) {
+        return res.json({ Status: false, Error: "Query Error: " + err });
+    }
+});
+
+
+
 // Image upload
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
