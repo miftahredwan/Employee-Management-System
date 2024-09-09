@@ -79,6 +79,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import './style.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 import { useNavigate } from 'react-router-dom';
 import axiosBase from '../axios.config';
 import ClipLoader from 'react-spinners/ClipLoader'; // Import the spinner
@@ -113,6 +114,12 @@ const EmployeeLogin = () => {
       });
   };
 
+
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword); // Toggle between showing and hiding the password
+  };
+
   return (
     <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
       <div className='p-3 rounded w-100 border loginForm' style={{ maxWidth: '400px' }}>
@@ -132,7 +139,7 @@ const EmployeeLogin = () => {
               className='form-control rounded-0'
             />
           </div>
-          <div className='mb-3'>
+          {/* <div className='mb-3'>
             <label htmlFor='password'>
               <strong>Password:</strong>
             </label>
@@ -143,7 +150,30 @@ const EmployeeLogin = () => {
               onChange={(e) => setValues({ ...values, password: e.target.value })}
               className='form-control rounded-0'
             />
-          </div>
+          </div> */}
+
+<div className='mb-3'>
+  <label htmlFor='password'>
+    <strong>Password:</strong>
+  </label>
+  <div className="input-group">
+    <input
+      type={showPassword ? 'text' : 'password'} // Toggle type based on showPassword state
+      name='password'
+      placeholder='Enter Password'
+      onChange={(e) => setValues({ ...values, password: e.target.value })}
+      className='form-control rounded-0'
+    />
+    <span
+      className="input-group-text"
+      onClick={handlePasswordVisibility} // Toggle visibility on click
+      style={{ cursor: 'pointer' }}
+    >
+      {showPassword ? <FaEyeSlash /> : <FaEye />} {/* Eye icon toggling */}
+    </span>
+  </div>
+</div>
+
           <button className='btn btn-success w-100 rounded-0 mb-2' disabled={loading}>
             {loading ? (
               <ClipLoader color='#fff' loading={loading} size={20} />
