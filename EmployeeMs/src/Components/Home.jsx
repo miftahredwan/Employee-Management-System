@@ -107,7 +107,7 @@ const Home = () => {
         </div>
         <hr />
         <div className='d-flex gap-2 justify-content-center'>
-          <h5>Total</h5>
+          <h5>Admin Total</h5>
           <h5>{adminTotal}</h5>
         </div>
       </div>
@@ -120,7 +120,7 @@ const Home = () => {
         </div>
         <hr />
         <div className='d-flex gap-2 justify-content-center'>
-          <h5>Total</h5>
+          <h5>Employee Total</h5>
           <h5>{employeeTotal}</h5>
         </div>
       </div>
