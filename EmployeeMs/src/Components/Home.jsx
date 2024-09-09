@@ -133,7 +133,7 @@ const Home = () => {
         </div>
         <hr />
         <div className='d-flex gap-2 justify-content-center'>
-          <h5>Total</h5>
+          <h5>Salary Total</h5>
           <h5>{salaryTotal ? `${salaryTotal} ETB` : '0 ETB'}</h5>
         </div>
       </div>
