@@ -55,7 +55,7 @@ const EditEmployee = () => {
   return (
     <div className="container mt-3">
     <div className="d-flex justify-content-center align-items-center">
-      <div className="p-3 rounded w-100 w-md-75 w-lg-50 border">
+      <div className="p-30 rounded w-100 w-md-75 w-lg-50 border">
         <h3 className="text-center">Edit Employee</h3>
         <form className="row g-3" onSubmit={handleSubmit}>
           <div className="col-12">
