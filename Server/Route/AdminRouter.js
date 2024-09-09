@@ -67,7 +67,7 @@ router.delete('/delete_category/:id', async (req, res) => {
         const result = await client.query(sql, [id]);
         return res.json({ Status: true, Result: result.rowCount });
     } catch (err) {
-        return res.json({ Status: false, Error: "Query Error: " + err });
+        return res.json({ Status: false, Error: "You Can't delete this because it is selected by employee"  });
     }
 });
 
