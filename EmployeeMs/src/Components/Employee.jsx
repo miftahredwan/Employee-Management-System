@@ -1,12 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import axiosBase from "../axios.config";
 
 const Employee = () => {
-  const navigate = useNavigate()
   const [employee, setEmployee] = useState([]);
-  // const navigate = useNavigate()
+  
 
   useEffect(() => {
     axiosBase
@@ -48,6 +47,7 @@ const Employee = () => {
             <th>Name</th>
             <th>Image</th>
             <th>Email</th>
+            <th>Category</th>
             <th>Salary</th>
             <th>Address</th>
             <th>Action</th>
@@ -66,8 +66,10 @@ const Employee = () => {
                 />
               </td>
               <td>{e.email}</td>
-              <td>{e.salary} K</td>
+              <td>{e.category}</td>
+              <td>{e.salary} ETB</td>
               <td>{e.address}</td>
+              
               <td>
                 <Link
                   to={`/dashboard/edit_employee/` + e.id}
