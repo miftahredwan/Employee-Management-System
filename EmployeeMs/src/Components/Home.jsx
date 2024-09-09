@@ -70,7 +70,7 @@ const Home = () => {
         <h4>Admin</h4>
       </div>
       <hr />
-      <div className='d-flex justify-content-between'>
+      <div className='d-flex '>
         <h5>Total:</h5>
         <h5>{adminTotal}</h5>
       </div>
@@ -80,7 +80,7 @@ const Home = () => {
         <h4>Employee</h4>
       </div>
       <hr />
-      <div className='d-flex justify-content-between'>
+      <div className='d-flex '>
         <h5>Total:</h5>
         <h5>{employeeTotal}</h5>
       </div>
@@ -90,7 +90,7 @@ const Home = () => {
         <h4>Salary</h4>
       </div>
       <hr />
-      <div className='d-flex justify-content-between'>
+      <div className='d-flex '>
         <h5>Total:</h5>
         <h5>0 ?{salaryTotal} ETB</h5>
       </div>
