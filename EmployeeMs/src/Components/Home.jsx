@@ -64,7 +64,7 @@ const Home = () => {
   }
   return (
     <div>
-  <div className='px-3 d-flex flex-wrap justify-content-around mt-3 '>
+  {/* <div className='px-3 d-flex flex-wrap justify-content-around mt-3 '>
     <div className='px-30 pt-2 pb-3 rounded border shadow-sm w-100 w-md-50 w-lg-5 mb-3'>
       <div className='text-center pb-1'>
         <h4>Admin</h4>
@@ -95,7 +95,52 @@ const Home = () => {
         <h5>{salaryTotal ? `${salaryTotal} ETB` : '0 ETB'}</h5>
       </div>
     </div>
+  </div> */}
+
+
+<div className='container mt-3'>
+  <div className='row justify-content-around'>
+    <div className='col-12 col-md-6 col-lg-3 mb-3'>
+      <div className='px-3 pt-2 pb-3 rounded border shadow-sm'>
+        <div className='text-center pb-1'>
+          <h4>Admin</h4>
+        </div>
+        <hr />
+        <div className='d-flex gap-2 justify-content-center'>
+          <h5>Total</h5>
+          <h5>{adminTotal}</h5>
+        </div>
+      </div>
+    </div>
+    
+    <div className='col-12 col-md-6 col-lg-3 mb-3'>
+      <div className='px-3 pt-2 pb-3 rounded border shadow-sm'>
+        <div className='text-center pb-1'>
+          <h4>Employee</h4>
+        </div>
+        <hr />
+        <div className='d-flex gap-2 justify-content-center'>
+          <h5>Total</h5>
+          <h5>{employeeTotal}</h5>
+        </div>
+      </div>
+    </div>
+
+    <div className='col-12 col-md-6 col-lg-3 mb-3'>
+      <div className='px-3 pt-2 pb-3 rounded border shadow-sm'>
+        <div className='text-center pb-1'>
+          <h4>Salary</h4>
+        </div>
+        <hr />
+        <div className='d-flex gap-2 justify-content-center'>
+          <h5>Total</h5>
+          <h5>{salaryTotal ? `${salaryTotal} ETB` : '0 ETB'}</h5>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
   <div className='mt-4 px-2 px-md-5 pt-3'>
     <h3>List of Admins</h3>
     <table className='table table-responsive'>
