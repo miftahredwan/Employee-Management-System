@@ -185,11 +185,15 @@
 
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
+
 import { useNavigate } from "react-router-dom";
 import axiosBase from "../axios.config";
 import ClipLoader from "react-spinners/ClipLoader"; // Import spinner
 
 const AddEmployee = () => {
+  
+
   const [employee, setEmployee] = useState({
     name: "",
     email: "",
@@ -242,7 +246,14 @@ const AddEmployee = () => {
         setLoading(false); // Hide spinner in case of error
         console.log(err);
       });
+
+     
   };
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword); // Toggle between showing and hiding the password
+  };
+  
 
   return (
     // <div className="container mt-3">
@@ -406,7 +417,7 @@ const AddEmployee = () => {
                 onChange={(e) => setEmployee({ ...employee, email: e.target.value })}
               />
             </div>
-            <div className="col-12">
+            {/* <div className="col-12">
               <label htmlFor="inputPassword4" className="form-label">Password</label>
               <input
                 type="password"
@@ -415,7 +426,33 @@ const AddEmployee = () => {
                 placeholder="Enter Password"
                 onChange={(e) => setEmployee({ ...employee, password: e.target.value })}
               />
-            </div>
+            </div> */}
+
+
+<div className="col-12">
+  <label htmlFor="inputPassword4" className="form-label">Password</label>
+  <div className="input-group">
+    <input
+      type={showPassword ? 'text' : 'password'} // Toggle type based on showPassword
+      className="form-control rounded-0"
+      id="inputPassword4"
+      placeholder="Enter Password"
+      onChange={(e) =>
+        setEmployee({ ...employee, password: e.target.value })
+      }
+    />
+    <span
+      className="input-group-text"
+      onClick={handlePasswordVisibility} // Toggle visibility on click
+      style={{ cursor: 'pointer' }}
+    >
+      {showPassword ? <FaEyeSlash /> : <FaEye />} {/* Eye icon toggling */}
+    </span>
+  </div>
+</div>
+
+
+
             <div className="col-12">
               <label htmlFor="inputSalary" className="form-label">Salary</label>
               <input
