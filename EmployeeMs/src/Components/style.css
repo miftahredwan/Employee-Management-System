@@ -5,7 +5,7 @@
     height: 100vh;
     background: url('/Images/empg.jpg');
     /* background: url('Images/q23.jpeg'); */
-    background: linear-gradient(rgba(174, 111, 111, 0.5), rgba(10, 10, 10, 0.5)), url("/Images/empg.jpg");
+    background: linear-gradient(rgba(174, 111, 111, 0), rgba(10, 10, 10, 0)), url("/Images/empg.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 120%;
