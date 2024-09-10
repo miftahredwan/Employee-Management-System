@@ -100,6 +100,7 @@ const Employee = () => {
               <th>Salary</th>
               <th>Address</th>
               <th>Action</th>
+              {employee.some((e) => e.category_name) && <th>Category</th>} {/* Conditionally render */}
             </tr>
           </thead>
           <tbody>
@@ -117,7 +118,7 @@ const Employee = () => {
 
                 <td>{e.email}</td>
 
-                {employee.some((e) => e.category_name) && <th>Category</th>} {/* Conditionally render */}<td>{e.category_name}</td>
+              
                 <td>{e.salary} ETB</td>
                 <td>{e.address}</td>
                 <td>
@@ -134,6 +135,7 @@ const Employee = () => {
                     Delete
                   </button>
                 </td>
+                <td>{e.category_name}</td>
               </tr>
             ))}
           </tbody>
