@@ -97,9 +97,8 @@ const Employee = () => {
               <th>Name</th>
               <th>Image</th>
               <th>Email</th>
-              {employee.some((e) => e.category_name) && <th>Category</th>} {/* Conditionally render */}
-              <th>--</th>
-              <th>Salary</th>
+              {employee.some((e) => e.category_name) && <th>Category{'      '}</th>} {/* Conditionally render */}
+              <th>Salary{'      '}</th>
               <th>Address</th>
               <th>Action</th>
             </tr>
