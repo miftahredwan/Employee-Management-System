@@ -9,10 +9,19 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 120%;
+    background-size: cover; /* This will ensure the image covers the entire container */
 }
 
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+    .loginPage {
+      background-size: contain; /* Adjust the background for smaller screens */
+      background-position: center;
+    }
+  }
+
 .loginForm {
-    background-color: rgba(1, 32, 93, 0.6);
+    background-color: rgba(1, 32, 93, 0.438);
     color: white;
 }
 
