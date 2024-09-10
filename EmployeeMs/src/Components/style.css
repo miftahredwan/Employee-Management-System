@@ -9,7 +9,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 120%;
-    background-size: cover; /* This will ensure the image covers the entire container */
+    /* background-size: cover; This will ensure the image covers the entire container */
 }
 
 /* Media query for mobile responsiveness */
