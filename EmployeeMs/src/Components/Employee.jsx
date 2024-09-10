@@ -209,13 +209,14 @@ const Employee = () => {
               <tr key={e.id}>
                 <td>{e.name}</td>
                 <td>
-                  <img
-                    src={`${axiosBase.defaults.baseURL}/Images/` + e.image}
-                    className="employee_image img-fluid"
-                    alt="employee"
-                    style={{ maxWidth: "50px", borderRadius: "5px" }}
-                  />
-                </td>
+  <img
+    src={`${axiosBase.defaults.baseURL}/Images/` + e.image}
+    className="employee_image img-fluid"
+    alt="employee"
+    style={{ maxWidth: "50px", height: "50px", borderRadius: "50%" }}
+  />
+</td>
+
                 <td>{e.email}</td>
                 <td>{e.category_name}</td>
                 <td>{e.salary} ETB</td>
