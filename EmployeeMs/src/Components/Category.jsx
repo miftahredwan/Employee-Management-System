@@ -98,7 +98,7 @@ const Category = () => {
                   <td>{c.name}</td>
                   <td>
                     <button
-                      className="btn btn-primary me-2"
+                      className="btn btn-primary me-4"
                       onClick={() => fetchEmployeesByCategory(c.id)} // Fetch employees when clicked
                     >
                       View Employees
