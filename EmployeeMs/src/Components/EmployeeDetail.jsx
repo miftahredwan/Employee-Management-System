@@ -9,22 +9,40 @@ const EmployeeDetail = () => {
     const {id} = useParams()
     const navigate = useNavigate()
 
+    // useEffect(() => {
+    //     axiosBase.get('/employee/detail/' + id)
+    //     .then(result => {
+    //         console.log(result.data)  // Debugging: check what the API returns
+    //         if (result.data) {
+    //             setEmployee(result.data)  // Directly set the data as an object
+    //         } else {
+    //             setError('No employee data found')
+    //         }
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //         setError('Error fetching employee details')  // Set error state
+    //     })
+    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [id])  // Add 'id' as a dependency to refetch if id changes
+
     useEffect(() => {
         axiosBase.get('/employee/detail/' + id)
         .then(result => {
             console.log(result.data)  // Debugging: check what the API returns
             if (result.data) {
-                setEmployee(result.data)  // Directly set the data as an object
+                setEmployee(result.data);  // Directly set the data as an object
             } else {
-                setError('No employee data found')
+                setError('No employee data found');
             }
         })
         .catch(err => {
-            console.log(err)
-            setError('Error fetching employee details')  // Set error state
+            console.log(err);
+            setError('Error fetching employee details');
         })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [id])  // Add 'id' as a dependency to refetch if id changes
+    }, [id]);
+    
+
 
     const handleLogout = () => {
         axiosBase.get('/employee/logout')
