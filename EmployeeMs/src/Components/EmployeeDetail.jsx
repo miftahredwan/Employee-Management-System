@@ -9,23 +9,6 @@ const EmployeeDetail = () => {
     const {id} = useParams()
     const navigate = useNavigate()
 
-    // useEffect(() => {
-    //     axiosBase.get('/employee/detail/' + id)
-    //     .then(result => {
-    //         console.log(result.data)  // Debugging: check what the API returns
-    //         if (result.data) {
-    //             setEmployee(result.data)  // Directly set the data as an object
-    //         } else {
-    //             setError('No employee data found')
-    //         }
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //         setError('Error fetching employee details')  // Set error state
-    //     })
-    // // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [id])  // Add 'id' as a dependency to refetch if id changes
-
     useEffect(() => {
         axiosBase.get('/employee/detail/' + id)
         .then(result => {
@@ -78,7 +61,14 @@ const EmployeeDetail = () => {
                         src={`${axiosBase.defaults.baseURL}/Images/` + employee.image}
                         className='emp_det_image img-fluid'
                         alt="Employee"
-                        style={{ maxWidth: '200px', height: "200px",borderRadius: '50%'}}
+                        // style={{ maxWidth: '200px', height: "200px",borderRadius: '50%'}}
+                        style={{
+                            width: '200px',     // Ensure the width is the same as height
+                            height: "200px",    // Set the height
+                            borderRadius: '50%', // Circular avatar
+                            objectFit: 'cover',  // Ensure the image covers the entire area without distortion
+                            border: '2px solid #ccc' // Optional: Add a border for better aesthetics
+                          }}
                     />
                 ) : (
                     <p>No Image Available</p>

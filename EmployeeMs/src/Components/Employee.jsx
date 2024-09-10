@@ -112,7 +112,13 @@ const Employee = () => {
     src={`${axiosBase.defaults.baseURL}/Images/` + e.image}
     className="employee_image img-fluid"
     alt="employee"
-    style={{ maxWidth: "50px", height: "50px", borderRadius: "50%" }}
+    style={{
+      width: "50px",       // Keep the width fixed at 50px
+      height: "50px",      // Keep the height fixed at 50px
+      borderRadius: "50%", // Ensure circular shape
+      objectFit: "cover",  // Ensure the image covers the area without distortion
+      border: "1px solid #ccc" // Optional: Add a border for a cleaner look
+    }}
   />
 </td>
 

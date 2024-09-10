@@ -33,21 +33,7 @@ router.post("/employee_login", async (req, res) => {
     }
 });
 
-// router.get('/detail/:id', async (req, res) => {
-//     try {
-//         const id = req.params.id;
-//         const sql = "SELECT * FROM employee WHERE id = $1";
-//         const result = await client.query(sql, [id]);
-        
-//         if(result.rows.length > 0) {
-//             return res.json(result.rows);
-//         } else {
-//             return res.json({Status: false, Error: "Employee not found"});
-//         }
-//     } catch (err) {
-//         return res.json({Status: false, Error: "Query error"});
-//     }
-// });
+
 
 
 router.get('/detail/:id', async (req, res) => {

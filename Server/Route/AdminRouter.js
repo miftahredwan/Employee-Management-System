@@ -71,20 +71,6 @@ router.delete('/delete_category/:id', async (req, res) => {
     }
 });
 
-
-// router.get('/employees_by_category/:categoryId', async (req, res) => {
-//     const { categoryId } = req.params;
-//     const sql = "SELECT * FROM employee WHERE category_id = $1";
-    
-//     try {
-//       const result = await client.query(sql, [categoryId]);
-//       return res.json({ Status: true, Result: result.rows });
-//     } catch (err) {
-//       return res.json({ Status: false, Error: "Query Error: " + err });
-//     }
-//   });
-  
-
   router.get('/employees_by_category/:categoryId', async (req, res) => {
     const { categoryId } = req.params;
     const sql = `
