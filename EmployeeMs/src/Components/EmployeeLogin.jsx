@@ -44,7 +44,7 @@ const EmployeeLogin = () => {
 
   return (
     <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
-      <div className='p-3 rounded w-90 border loginForm' style={{ maxWidth: '400px' }}>
+      <div className='p-3 rounded w-100 border loginForm' style={{ maxWidth: '400px' }}>
         <div className='text-warning'>{error && error}</div>
         <h2 className='text-center'>Employee Login Page</h2>
         <form onSubmit={handleSubmit}>
